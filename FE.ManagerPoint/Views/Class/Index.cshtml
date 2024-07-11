@@ -1,0 +1,105 @@
+﻿@{
+	Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewBag.Title = "Quản lý lop hoc";
+}
+
+<div class="card">
+	<div class="card-header">
+		<div class="row">
+			<div class="col-md-10 fw-bolder d-flex align-items-center">Danh sách lớp học</div>
+			<div class="col-md-2 d-flex justify-content-end">
+				<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#createModal">Thêm mới</button>
+			</div>
+		</div>
+	</div>
+	<div class="card-body">
+		<table id="class_table" class="table table-striped table-hover">
+			<thead>
+				<tr>
+					<th>STT</th>
+					<th>Mã lớp</th>
+					<th>Lớp</th>
+					<th>Khối</th>
+					<th>Năm học</th>
+					<th>Khóa học</th>
+					<th>Trạng thái</th>
+					<th>Thao tác</th>
+				</tr>
+			</thead>
+		</table>
+	</div>
+</div>
+<partial name="Create" />
+<partial name="Update" />
+<script src="~/js/Classes/Classes.js"></script>
+<script>
+	$(document).ready(function () {
+		setupGrid()
+		$('#class_create_form').on('submit', function (event) {
+			var form = $(this);
+			if (!form[0].checkValidity()) {
+				event.preventDefault();
+				event.stopPropagation();
+			} else {
+				let class_classcode = $("#class_classcode").val();
+				let class_name = $("#class_name").val();
+				let class_gradeLevel = $("#class_gradeLevel").val();
+				let class_courseName = $("#class_courseName").val();
+				let years = $("#years").val();
+				let status_list = $("#status_list").val();
+				let object = {
+					Classcode: class_classcode,
+					CourseId: class_courseName,
+					Years: years,
+					Name: class_name,
+					GradeLevel: parseInt(class_gradeLevel),
+					Status: parseInt(status_list),
+				};
+				event.preventDefault();
+				debugger
+				createClass(object, function () {
+					$("#class_classcode").val("");
+					$("#class_name").val("");
+					$("#class_courseName").val("");
+					$("#class_gradeLevel").val("");
+					$("#years").val("");
+					$("#status_list").val("");
+					toastr.success('Thêm mới thành công lớp học!');
+					$('#createModal').modal('hide');
+					form.removeClass('was-validated');
+				});
+			}
+			form.addClass('was-validated');
+		});
+		$('#class_update_form').on('submit', function (event) {
+			var form = $(this);
+			if (!form[0].checkValidity()) {
+				event.preventDefault();
+				event.stopPropagation();
+			} else {
+				let id = $("#class_id").val();
+				let class_classcode = $("#class_classcode_md").val();
+				let class_name = $("#class_name_md").val();
+				let class_gradeLevel = $("#class_gradeLevel_md").val();
+				let years_md = $("#years_md").val();
+				let class_courseName = $("#class_courseName_md").val();
+				let status_list = $("#status_list_md").val();
+				let object = {
+					Classcode: class_classcode,
+					CourseId: class_courseName,
+					Years: years_md,
+					Name: class_name,
+					GradeLevel: parseInt(class_gradeLevel),
+					Status: parseInt(status_list),
+				};
+				event.preventDefault();
+				updateSub(id, object, function () {
+					toastr.success('Cập nhật thành công lớp học!');
+					form.removeClass('was-validated');
+					$('#updateModal').modal('hide');
+				});
+			}
+			form.addClass('was-validated');
+		});
+	});
+</script>

@@ -1,0 +1,243 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Phân quyền người dùng";
+}
+<style>
+    #student_role_table thead th {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    #student_role_table tbody tr td {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    #teacher_role_table thead th {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    #teacher_role_table tbody tr td {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    #user_role_table thead th {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    #user_role_table tbody tr td {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    #role_table thead th {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    #role_table tbody tr td {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .img_td {
+        width: 150px;
+    }
+
+        .img_td img {
+            width: 60px;
+            height: auto;
+        }
+
+    .img_td_teacher {
+        width: 50px;
+    }
+
+        .img_td_teacher img {
+            width: 60px;
+            height: auto;
+        }
+
+    .img_td_student {
+        width: 30px;
+    }
+
+        .img_td_student img {
+            width: 60px;
+            height: auto;
+        }
+</style>
+<nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <button class="nav-link" id="nav-teacher-tab" data-bs-toggle="tab" data-bs-target="#nav-teacher" type="button" role="tab" aria-controls="nav-teacher" aria-selected="false">Giáo viên</button>
+        <button class="nav-link" id="nav-student-tab" data-bs-toggle="tab" data-bs-target="#nav-student" type="button" role="tab" aria-controls="nav-student" aria-selected="false">Học sinh</button>
+        <button class="nav-link active" id="nav-user-tab" data-bs-toggle="tab" data-bs-target="#nav-user" type="button" role="tab" aria-controls="nav-user" aria-selected="true">Người dùng chưa phân quyền</button>
+    </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade" id="nav-teacher" role="tabpanel" aria-labelledby="nav-teacher-tab">
+        <div class="row mt-3">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="search_subject">Tìm kiếm theo môn học</label>
+                    <select id="search_subject" class="form-control">
+                        <option value="0" selected>---Tất cả---</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label for="search_class">Tìm kiếm theo lớp học</label>
+                <select id="search_class" class="form-control">
+                    <option value="0" selected>---Tất cả---</option>
+                </select>
+            </div>
+        </div>
+        <div class="card mt-5">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-md-11 fw-bolder d-flex align-items-center">Bảng hiển thị giáo viên</div>
+                </div>
+            </div>
+            <div class="card-body">
+                <table id="teacher_role_table" class="table table-striped table-hover" style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Họ và tên</th>
+                            <th>Mã giáo viên</th>
+                            <th>Ảnh</th>
+                            <th>Trạng thái</th>
+                            <th>Thao tác</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane fade" id="nav-student" role="tabpanel" aria-labelledby="nav-student-tab">
+        <div class="row mt-3">
+            <div class="col-md-6">
+                <label for="search_class">Tìm kiếm theo lớp học</label>
+                <select id="search_class_student" class="form-control">
+                    <option value="0" selected>---Tất cả---</option>
+                </select>
+            </div>
+        </div>
+        <div class="card mt-5">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-md-11 fw-bolder d-flex align-items-center">Bảng hiển thị học sinh</div>
+                </div>
+            </div>
+            <div class="card-body">
+                <table id="student_role_table" class="table table-striped table-hover" style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Họ và tên</th>
+                            <th>Mã học sinh</th>
+                            <th>Ảnh</th>
+                            <th>Trạng thái</th>
+                            <th>Thao tác</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane fade show active" id="nav-user" role="tabpanel" aria-labelledby="nav-user-tab">
+        <div class="card mt-5">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-md-10 fw-bolder d-flex align-items-center">Bảng hiển thị người dùng chưa phân quyền</div>
+                    <div class="col-md-2 d-flex justify-content-end">
+                        <button id="createRole" type="button" class="btn btn-success">Phân quyền đã chọn</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-6">
+                        <table id="user_role_table" class="table table-striped table-hover" style="width: 100%;">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Id</th>
+                                    <th>Họ và tên</th>
+                                    <th>Mã người dùng</th>
+                                    <th>Ảnh</th>
+                                    <th>Trạng thái</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div class="col-6">
+                        <table id="role_table" class="table table-striped table-hover" style="width: 100%;">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Id</th>
+                                    <th>Quyền</th>
+                                    <th>Trạng thái</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<partial name="UpdateRole" />
+<script src="~/js/User_Role/UserRole.js"></script>
+<script>
+    $(document).ready(function () {
+        getSubject();
+        $("#search_subject").select2({ width: '100%' });
+        getClass();
+        $("#search_class").select2({ width: '100%' });
+        getStudentClass();
+        $("#search_class_student").select2({ width: '100%' });
+        roleGrid();
+        userNoRoleGrid();
+        $("#createRole").click(function () {
+            CreateRole(function () {
+                toastr.success('Gán quyền cho người dùng thành công');
+            });
+        });
+        getRole();
+        $("#role_selected").select2({
+            dropdownParent: $('#updateModal'),
+            width: '100%'
+        });
+        $("#search_subject").change(function () {
+            $('#teacher_role_table').DataTable().ajax.reload();
+        });
+        $("#search_class").change(function () {
+            $('#teacher_role_table').DataTable().ajax.reload();
+        });
+        $("#search_class_student").change(function () {
+            $('#student_role_table').DataTable().ajax.reload();
+        });
+        $('#role_update_form').on('submit', function (event) {
+            let ids = $('#role_selected').val()
+            let id = $('#id').val()
+            var form = $(this);
+            if (!form[0].checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+            } else {
+                event.preventDefault();
+                editRole(id, ids, function () {
+                    toastr.success('Sửa quyền thành công');
+                    let = $('#updateModal').modal('hide');
+                    form.removeClass('was-validated');
+                });
+            }
+            form.addClass('was-validated');
+        })
+    });
+</script>

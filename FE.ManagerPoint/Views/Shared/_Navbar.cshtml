@@ -1,0 +1,84 @@
+﻿
+<style>
+	.user {
+		position: relative;
+		display: inline-block;
+	}
+
+	.change-password {
+		display: none;
+		position: absolute;
+		top: 100%;
+		left: 0;
+		background-color: white;
+		border: 1px solid #ccc;
+		padding: 10px;
+		z-index: 1;
+	}
+
+	.user:hover .change-password {
+		display: block;
+	}
+
+	.bell {
+		position: relative;
+		display: inline-block;
+		cursor: pointer;
+	}
+
+	.notification-list {
+		display: none;
+		position: absolute;
+		top: 100%;
+		right: 0;
+		background-color: white;
+		border: 1px solid #ccc;
+		padding: 10px;
+		z-index: 1;
+		width: 300px; /* adjust as needed */
+	}
+
+		.notification-list p {
+			margin: 0;
+			padding: 5px 0;
+		}
+
+	.bell.active .notification-list {
+		display: block;
+	}
+</style>
+<div class="home-content">
+	<div class="logo">
+		<div class="anh">
+			<img src="/img/logo.jpg" style="width: 100px;" alt="EDUCATION">
+		</div>
+		<div class="title">
+			<p>EDUCATION</p>
+		</div>
+		<i class="fas fa-bars" onclick="iconmr()"></i>
+	</div>
+
+	<div class="menu-infor">
+		<div class="bell">
+			<i class="fa-solid fa-bell" style="font-size: 20px;color:#A0A2A6"></i>
+			<a href="#">
+				Thông báo
+			</a>
+			<i class="fa-solid fa-exclamation"></i>
+			<div class="notification-list">
+				<p> <span>Hệ thống : </span> Mọi thông báo sẽ được thầy cô nhắc trên lớp</p>
+			</div>
+		</div>
+		<div class="user">
+			<i class="fa-solid fa-user" style="font-size: 20px;color:#A0A2A6"></i>
+			<a href="#">
+				Xin chào : ???
+			</a>
+		</div>
+	</div>
+</div>
+
+<script>
+
+
+</script>

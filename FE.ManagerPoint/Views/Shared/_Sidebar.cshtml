@@ -1,0 +1,217 @@
+<div id='sidebar' class="sidebar">
+    <ul class="nav-list">
+        <li>
+            <div id="analystic" class="icon-link">
+                <a id="static_teacher" class="static_teacher" href="/User/Analystic_User">
+                    <i class="fa-solid fa-chart-simple"></i>
+                    <span class="link-name">Thống kê</span>
+                </a>
+                <i class="fas fa-caret-down arrow"></i>
+            </div>
+            <ul class="sub-menu">
+                <li><a class="link-name">Thống kê</a></li>
+                <li>
+                    <a id="static_teacher" class="static_teacher" href="/User/Analystic_User">
+                        Thống kê tổng số giáo viên và học sinh
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <div id="grade_point" class="icon-link">
+                <a id="gradepoint" class="gradepoint" href="/Gradepoint/Index">
+                    <i class="fa-solid fa-file-pen"></i>
+                    <span class="link-name">Bảng điểm</span>
+                </a>             
+            </div>
+        </li>
+        <li>
+            <div id="headTeacher" class="icon-link">
+                <a href="">
+                    <i class="fa-solid fa-chalkboard-user"></i>
+                    <span class="link-name">Lớp chủ nhiệm</span>
+                </a>
+            </div>
+            <ul class="sub-menu">
+                <li><a class="link-name">Lớp chủ nhiệm</a></li>
+            </ul>
+        </li>
+        <li>
+            <div id="subjectTeacher" class="icon-link">
+                <a href="">
+                    <i class="fa-solid fa-person-chalkboard"></i>
+                    <span class="link-name">Lớp giảng dạy</span>
+                </a>
+            </div>
+            <ul class="sub-menu">
+                <li><a class="link-name">Lớp giảng dạy</a></li>
+            </ul>
+        </li>
+        <li>
+            <div class="icon-link">
+                <a  asp-controller="KhenThuong" asp-action="KhenThuong">
+                    <i class="fa-solid fa-heart"></i>
+                    <span class="link-name">Khen thưởng / kỉ luật</span>
+                </a>
+            </div>
+            <ul class="sub-menu">
+                <li><a class="link-name">Khen thưởng / kỉ luật</a></li>
+            </ul>
+        </li>
+        <li>
+            <div id="user_manage" class="icon-link">
+                <a id="user" href="/User/Index">
+                    <i class="fa-solid fa-user-group"></i>
+                    <span class="link-name">Quản lý người dùng</span>
+                </a>
+                <i class="fas fa-caret-down arrow"></i>
+            </div>
+            <ul class="sub-menu">
+                <li><a class="link-name">Quản lý người dùng</a></li>
+                <li>
+                    <a id="role" class="role" href="/Role/Index">
+                        Quản lý quyền
+                    </a>
+                    <a id="user" class="user" href="/User/Index">
+                        Danh sách người dùng
+                    </a>
+                    <a id="user_role" class="user_role" href="/User/User_Role">
+                        Phân quyền cho người dùng
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <div id="class_manage" class="icon-link">
+                <a href="/Class/Index">
+                    <i class="fa-solid fa-users"></i>
+                    <span class="link-name">Quản lí lớp học</span>
+                </a>
+                <i class="fas fa-caret-down arrow"></i>
+            </div>
+            <ul class="sub-menu">
+                <li><a class="link-name">Quản lý giáo viên / học sinh </a></li>
+                <li>
+                    <a href="/Class/Index">
+                        Danh sách lớp học
+                    </a>
+                </li>
+                <li>
+                    <a href="/Class/Student_Class">
+                        Gán lớp cho học sinh
+                    </a>
+                </li>
+                <li>
+                    <a href="/Class/Teacher_Class">
+                        Gán giáo
+                        viên cho lớp
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <div id="course_manage" class="icon-link">
+                <a id="course" class="course" href="/Course/Index">
+                    <i class="fa-solid fa-school"></i>
+                    <span class="link-name">Quản lí khóa / lớp</span>
+                </a>
+                <i class="fas fa-caret-down arrow"></i>
+            </div>
+
+            <ul class="sub-menu">
+                <li><a class="link-name">Quản lí khóa / lớp </a></li>
+                <li>
+                    <a id="course" class="course" href="/Course/Index">Khóa học</a>
+                </li>
+                <li>
+                    <a id="classes" class="classes" href="/Class/Index">
+                        Lớp
+                        học
+                    </a>
+
+                </li>
+            </ul>
+        </li>
+        <li>
+            <div id="subject_manage" class="icon-link">
+                <a id="subject" class="subject" href="/Subject/Index">
+                    <i class="fa-solid fa-book-open"></i>
+                    <span class="link-name">Quản lý môn học</span>
+                </a>
+                <i class="fas fa-caret-down arrow"></i>
+            </div>
+
+            <ul class="sub-menu">
+                <li><a class="link-name">Quản lý môn học</a></li>
+                <li>
+                    <a id="subject" class="subject" href="/Subject/Index">
+                        Danh sách môn học
+                    </a>
+                    <a id="subject_user" class="subject_user" href="/Subject/Subject_User">
+                        Phân công môn học cho giáo viên
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <div class="icon-link">
+                <a href="" id="logout-link">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span class="link-name">Đăng xuất</span>
+                </a>
+            </div>
+        </li>
+        <li>
+            <div class="icon-link">
+                <a href="javascript:" id="logout-link" onclick="Changepassword()">
+                    <i class="fa fa-lock"></i>
+                    <span class="link-name">Đổi mật khẩu</span>
+                </a>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<script src="~/js/home.js"></script>
+<partial name="Changepassword" />
+<script>
+    $(document).ready(function () {
+        $('#logout-link').on('click', function () {
+            sessionStorage.clear();
+            localStorage.clear();
+            window.location.href = '/Account/Login';
+        });
+        if (roleCode.includes("gv")) {
+            var url_subject = `/Class/ClassOnBoard?idUser=${userId}`;
+            var url_head = `/Class/ClassHomeRoom?idUser=${userId}`;
+            $('#subjectTeacher a').attr('href', url_subject);
+            $('#headTeacher a').attr('href', url_head);
+        }
+
+        if (roleCode.includes("hs")) {
+            var gradepoint = `/Gradepoint/Index`;
+            $('#gradepoint a').attr('href', gradepoint);
+        }
+    });
+    $(document).ready(function () {
+        // Lấy giá trị fullname từ session và thay thế vào chỗ "Xin chào: ???"
+        var fullname = sessionStorage.getItem("FullName");
+        if (fullname) {
+            $(".user a").first().text("Xin chào: " + fullname);
+        }
+    });
+
+    $(document).ready(function () {
+        // Toggle the display of the notification list on click
+        $('.bell').click(function () {
+            $(this).toggleClass('active');
+        });
+
+        // Hide the notification list when clicking outside
+        $(document).click(function (e) {
+            if (!$(e.target).closest('.bell').length) {
+                $('.bell').removeClass('active');
+            }
+        });
+    });
+</script>
